@@ -25,7 +25,7 @@ get_header(); ?>
 
 			echo "<br><br>";
 
-			echo get_post_meta( $post->ID, 'myplugin_link');
+			echo get_post_meta( $post->ID, 'myplugin_link', true);
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
