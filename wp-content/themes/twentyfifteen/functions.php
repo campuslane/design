@@ -59,7 +59,7 @@ function myplugin_meta_box_callback( $post ) {
 	 * Use get_post_meta() to retrieve an existing value
 	 * from the database and use the value for the form.
 	 */
-	$value = get_post_meta( $post->ID, '_my_meta_value_key', true );
+	$value = get_post_meta( $post->ID, 'myplugin_link', true );
 
 	echo '<label for="myplugin_new_field">';
 	_e( 'Link', 'myplugin_textdomain' );
