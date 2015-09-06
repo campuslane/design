@@ -64,7 +64,7 @@ function myplugin_meta_box_callback( $post ) {
 	echo '<label for="myplugin_new_field">';
 	_e( 'Link', 'myplugin_textdomain' );
 	echo '</label> ';
-	echo '<input type="text" id="_myplugin_link" name="_myplugin_link" value="' . esc_attr( $value ) . '" size="25" />';
+	echo '<input type="text" id="myplugin_link" name="myplugin_link" value="' . esc_attr( $value ) . '" size="25" />';
 }
 
 /**
@@ -111,15 +111,15 @@ function myplugin_save_meta_box_data( $post_id ) {
 	/* OK, it's safe for us to save the data now. */
 	
 	// Make sure that it is set.
-	if ( ! isset( $_POST['_myplugin_link'] ) ) {
+	if ( ! isset( $_POST['myplugin_link'] ) ) {
 		return;
 	}
 
 	// Sanitize user input.
-	$my_data = sanitize_text_field( $_POST['_myplugin_link'] );
+	$my_data = sanitize_text_field( $_POST['myplugin_link'] );
 
 	// Update the meta field in the database.
-	update_post_meta( $post_id, '_myplugin_link', $my_data );
+	update_post_meta( $post_id, 'myplugin_link', $my_data );
 }
 add_action( 'save_post', 'myplugin_save_meta_box_data' );
 
